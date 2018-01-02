@@ -26,15 +26,16 @@ var Preloader = {
 
         //Main Game Assets
 
-        game.load.start();
-
-
+        game.load.audio('music', ['audio/music.wav']);
         game.load.spritesheet('dance', 'dance-sprite.png?v=1', 648, 910, 2);
         game.load.spritesheet('arrows', 'arrows.png?v=1', 100, 100, 4);
+        game.load.image('logo', 'logo.png');
+        game.load.image('bgr', 'bgr.png');
+        game.load.image('marty1', 'marty.png');
 
         //backroudn parallax
 
-
+        game.load.start();
 
 
     },
@@ -42,7 +43,7 @@ var Preloader = {
         loadingText.setText("Loading ...");
     },
     loadComplete : function(){
-        game.state.start('Game');
+        game.state.start('Menu');
     },
     fileComplete : function(progress, cacheKey, success, totalLoaded, totalFiles){
         loadingText.setText("Loading: " + progress + "% - " + totalLoaded + " of " + totalFiles);

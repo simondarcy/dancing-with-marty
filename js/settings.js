@@ -1,25 +1,19 @@
 var mobileSettings = {
-    planeScale:0.25,
-    reindeerScale:0.2,
-    reindeerSpacing:60,
-    santaScale:0.4,
-    houseScale:1,
-    giftScale:0.7,
-    splashHeadingFont:'42px Mountains of Christmas',
-    playBtnFont:'30px Helvetica',
-    instructionDescFont:'23px Arial'
+    upBtnPos:{x:30, y:60},
+    downBtnPos:{x:105, y:60},
+    leftBtnPos:{x:165, y:60},
+    rightBtnPos:{x:90, y:60},
+    btnScale:0.7,
+    marty:{scale:0.5}
 };
 
 var desktopSettings = {
-    planeScale:0.3,
-    reindeerScale:0.2,
-    reindeerSpacing:60,
-    santaScale:0.4,
-    houseScale:1,
-    giftScale:0.8,
-    splashHeadingFont:'42px Mountains of Christmas',
-    playBtnFont:'30px Helvetica',
-    instructionDescFont:'23px Arial'
+    upBtnPos:{x:100, y:100},
+    downBtnPos:{x:210, y:100},
+    leftBtnPos:{x:310, y:100},
+    rightBtnPos:{x:200, y:100},
+    btnScale:1,
+    marty:{scale:0.5}
 };
 
 var settings = mobileSettings;
