@@ -1,10 +1,16 @@
 var mobileSettings = {
-    upBtnPos:{x:30, y:60},
-    downBtnPos:{x:105, y:60},
-    leftBtnPos:{x:165, y:60},
-    rightBtnPos:{x:90, y:60},
+    upBtnPos:{x:40, y:60},
+    downBtnPos:{x:115, y:60},
+    leftBtnPos:{x:120, y:60},
+    rightBtnPos:{x:45, y:60},
     btnScale:0.7,
-    marty:{scale:0.5}
+    marty:{scale:1},
+    shareX:100,
+    shareY:140,
+    shareSpacing:100,
+    shareScale:1,
+    isMobile:true,
+    logoScale:1
 };
 
 var desktopSettings = {
@@ -13,7 +19,13 @@ var desktopSettings = {
     leftBtnPos:{x:310, y:100},
     rightBtnPos:{x:200, y:100},
     btnScale:1,
-    marty:{scale:0.5}
+    marty:{scale:1.3},
+    shareX:100,
+    shareY:100,
+    shareSpacing:100,
+    shareScale:1,
+    isMobile:false,
+    logoScale:0.9
 };
 
 var settings = mobileSettings;

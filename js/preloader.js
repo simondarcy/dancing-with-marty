@@ -1,13 +1,26 @@
 var loadingText;
 
 
+WebFontConfig = {
+    active: function() {
+        game.time.events.add(Phaser.Timer.SECOND, function() {
+        }, this);
+    },
+    google: {
+        families: ['Baloo Paaji']
+    }
+};
+
+
 var Preloader = {
 
     preload : function() {
 
 
-
-        loadingText = game.add.text(32, 100, 'Loading...', { font:"23px Arial", fill: '#FFF'});
+        game.load.script('webfont', '//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js');
+        //Loading text
+        loadingText = game.add.text(game.width/2, game.height/2, 'Loading...', { font:"23px Baloo Paaji", fill: '#52108c', align:'center', boundsAlignH: "center", boundsAlignV: "middle"});
+        loadingText.anchor.setTo(0.5);
 
         game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
         game.scale.pageAlignHorizontally = true;
@@ -27,13 +40,24 @@ var Preloader = {
         //Main Game Assets
 
         game.load.audio('music', ['audio/music.wav']);
-        game.load.spritesheet('dance', 'dance-sprite.png?v=1', 648, 910, 2);
-        game.load.spritesheet('arrows', 'arrows.png?v=1', 100, 100, 4);
+        game.load.spritesheet('dance-idle', 'dance-idle.png?v=2', 330, 520, 4);
+        game.load.spritesheet('dance-down', 'dance-down.png?v=2', 330, 520, 4);
+        game.load.spritesheet('dance-right', 'dance-right.png?v=2', 330, 520, 6);
+        game.load.spritesheet('dance-up', 'dance-up.png?v=2', 330, 520, 6);
+        game.load.spritesheet('dance-left', 'dance-left.png?v=2', 330, 520, 6);
+
+        game.load.spritesheet('arrows', 'arrows.png?v=2', 100, 100, 4);
         game.load.image('logo', 'logo.png');
+        game.load.image('paddle', 'paddle.png');
         game.load.image('bgr', 'bgr.png');
         game.load.image('marty1', 'marty.png');
 
-        //backroudn parallax
+
+        //Share icons
+        game.load.image('facebook', 'share_facebook.png');
+        game.load.image('twitter', 'share_twitter.png');
+        game.load.image('link', 'share_link.png');
+        game.load.image('whatsapp', 'share_whatsapp.png');
 
         game.load.start();
 
