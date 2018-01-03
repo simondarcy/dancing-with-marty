@@ -37,9 +37,21 @@ var Preloader = {
         //Global Assets
         game.stage.backgroundColor = '#f9e1ad';
 
+        //Audio
+        game.load.audio('music', ['audio/music.wav']);
+        game.load.audio('all-aboard', ['audio/all-aboard.ogg']);
+        game.load.audio('attention', ['audio/attention.ogg']);
+        game.load.audio('exciting', ['audio/exciting.ogg']);
+        game.load.audio('final', ['audio/final.ogg']);
+        game.load.audio('is-this-thing-on', ['audio/is-this-thing-on.ogg']);
+        game.load.audio('kerry', ['audio/kerry.ogg']);
+
         //Main Game Assets
 
-        game.load.audio('music', ['audio/music.wav']);
+
+
+
+
         game.load.spritesheet('dance-idle', 'dance-idle.png?v=2', 330, 520, 4);
         game.load.spritesheet('dance-down', 'dance-down.png?v=2', 330, 520, 4);
         game.load.spritesheet('dance-right', 'dance-right.png?v=2', 330, 520, 6);

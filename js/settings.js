@@ -4,13 +4,15 @@ var mobileSettings = {
     leftBtnPos:{x:120, y:60},
     rightBtnPos:{x:45, y:60},
     btnScale:0.7,
-    marty:{scale:1},
+    marty:{scale:0.8},
     shareX:100,
     shareY:140,
     shareSpacing:100,
+    splashMarty:{scale:0.3},
     shareScale:1,
     isMobile:true,
-    logoScale:1
+    logoScale:1,
+    instructions:"Make Marty dance by swiping in the direction of the corresponding arrow as it passes through the static arrows at the top of the screen.\n The more accurate you are the more points you will receive"
 };
 
 var desktopSettings = {
@@ -25,7 +27,9 @@ var desktopSettings = {
     shareSpacing:100,
     shareScale:1,
     isMobile:false,
-    logoScale:0.9
+    logoScale:0.9,
+    splashMarty:{scale:0.4},
+    instructions:"Make Marty dance using your arrow keys to fire when the arrows collide, the more accurate you are the more points you will receive"
 };
 
 var settings = mobileSettings;

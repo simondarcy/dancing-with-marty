@@ -22,15 +22,11 @@ dances = {
 };
 
 
-
 //Create Houses
 House = function (game) {
-
     frameNo = game.rnd.between(0, 3);
-
     ref = ["upBtnPos", "downBtnPos", "leftBtnPos", "rightBtnPos"];
     xVal = (frameNo>1)?game.width-settings[ref[frameNo]].x:settings[ref[frameNo]].x;
-
     Phaser.Sprite.call(this, game, xVal, (game.height+100), "arrows");
     game.physics.enable(this, Phaser.Physics.ARCADE);
     this.anchor.set(0.5);
@@ -42,7 +38,6 @@ House = function (game) {
     var anim = this.animations.add('anim');
     this.frame = frameNo;
     this.gap =  game.rnd.between(100, 400)
-
 };
 House.prototype = Object.create(Phaser.Sprite.prototype);
 House.prototype.constructor = House;
@@ -72,15 +67,9 @@ var Game = {
     },
     create : function() {
 
-
-
-
-
-
         giftSpeed = 250;
         score = 0;
         percent = 0;
-
 
         bgr = game.add.sprite(0, 0, "bgr");
         bgr.width = game.width;
@@ -88,9 +77,7 @@ var Game = {
 
         cursors = game.input.keyboard.createCursorKeys();
 
-
         this.swipe = new Swipe(game);
-
 
         //marty
         marty = game.add.sprite((game.width/2), game.height/2, "dance1");
@@ -104,7 +91,7 @@ var Game = {
         music.play();
 
         textStyle = {
-            font: '60px Baloo Paaji',
+            font: '50px Baloo Paaji',
             fill: '#52108c',
             align: 'center',
             boundsAlignH: "center",
@@ -148,8 +135,6 @@ var Game = {
         this.houseGroup = game.add.group();
         this.addHouse(this.houseGroup);
 
-
-
         var barConfig = {x: game.width/2,
             y: game.height-50,
             width:game.width-((game.width / 100) * 10),
@@ -171,7 +156,6 @@ var Game = {
 
     },
     doDance:function(dance){
-
 
         if (dance == currentDance){
             return;
@@ -202,6 +186,8 @@ var Game = {
             game.state.start('GameOver');
         }
 
+        var direction = Game.swipe.check();
+
         game.physics.arcade.overlap(this.arrowGroup, this.houseGroup, function(s, h){
 
 
@@ -210,38 +196,35 @@ var Game = {
             offset = Math.abs( Math.round(s.y - h.y) );
 
             offset = Math.ceil(offset / 10);
-
-            var direction = Game.swipe.check();
-
-
+            
             if (direction!==null) {
 
                 // direction= { x: x, y: y, direction: direction }
                 switch(direction.direction) {
                     case Game.swipe.DIRECTION_LEFT:
                         if(s.frame==2){
-                            Game.tweenTint(h, 0xea6045, 0x02fc2c, 500);
+                            Game.tweenTint(h);
                             Game.updateScore(offset);
                             Game.doDance("left");
                         }
                         break;
                     case Game.swipe.DIRECTION_RIGHT:
                         if(s.frame==3){
-                            Game.tweenTint(h, 0xea6045, 0x02fc2c, 500);
+                            Game.tweenTint(h);
                             Game.updateScore(offset);
                             Game.doDance("right");
                         }
                         break;
                     case Game.swipe.DIRECTION_UP:
                         if(s.frame==0){
-                            Game.tweenTint(h, 0xea6045, 0x02fc2c, 500);
+                            Game.tweenTint(h);
                             Game.updateScore(offset);
                             Game.doDance("up");
                         }
                         break;
                     case Game.swipe.DIRECTION_DOWN:
                         if(s.frame==1){
-                            Game.tweenTint(h, 0xea6045, 0x02fc2c, 500);
+                            Game.tweenTint(h);
                             Game.updateScore(offset);
                             Game.doDance("down");
                         }
@@ -255,26 +238,26 @@ var Game = {
 
             if(cursors.up.isDown && s.frame == 0 && !h.hit) {
                 h.hit = true;
-                Game.tweenTint(h, 0xea6045, 0x02fc2c, 500);
+                Game.tweenTint(h);
                 Game.updateScore(offset);
                 Game.doDance("up");
 
             }
             if(cursors.down.isDown && s.frame == 1&& !h.hit) {
                 h.hit = true;
-                Game.tweenTint(h, 0xea6045, 0x02fc2c, 500);
+                Game.tweenTint(h);
                 Game.updateScore(offset);
                 Game.doDance("down");
             }
             if(cursors.left.isDown && s.frame == 2&& !h.hit) {
                 h.hit = true;
-                Game.tweenTint(h, 0xea6045, 0x02fc2c, 500);
+                Game.tweenTint(h);
                 Game.updateScore(offset);
                 Game.doDance("left");
             }
             if(cursors.right.isDown && s.frame == 3&& !h.hit) {
                 h.hit = true;
-                Game.tweenTint(h, 0xea6045, 0x02fc2c, 500);
+                Game.tweenTint(h);
                 Game.updateScore(offset);
                 Game.doDance("right");
             }
@@ -293,28 +276,22 @@ var Game = {
         }
 
 
-
         score=score+(10-offset)+bonus;
-        scoreText.setText(score);
+        scoreText.setText((10-offset)+bonus); /* Only show what you just got */
         scoreText.alpha = 1;
         scoreTween = game.add.tween(scoreText).to({alpha: 0}, 500, Phaser.Easing.Linear.None, true);
     },
     render: function(){
 
     },
-
-    tweenTint:function(obj, startColor, endColor, time) {
-
-
+    tweenTint:function(obj) {
         var colorTween = game.add.tween(obj.scale);
         colorTween.to({x:2.5,y:2.5}, 300, Phaser.Easing.Linear.None);
-
-      colorTween.start();
+        colorTween.start();
         colorTween.onComplete.addOnce(function () {
             obj.destroy();
         })
     }
-
 
 
 };
