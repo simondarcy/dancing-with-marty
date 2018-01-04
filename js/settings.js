@@ -13,8 +13,9 @@ var mobileSettings = {
     isMobile:true,
     logoScale:0.6,
     paddle:{scale:0.8, textOffset:125},
-    instructions:"Make Marty dance by swiping in the direction \n of the corresponding arrow as it passes through \n the static arrows at the top of the screen.\n\n The more accurate you are \n the more points you will receive",
-    instructionsFont:"14px Baloo Paaji",
+    instructions:"Make Marty dance by swiping in the direction of the corresponding arrow as they collide.",
+    instrunctionPadding:50,
+    instructionsFont:"20px Baloo Paaji",
     score:{font:"40px Baloo Paaji", y:70},
     bonus:{font:"30px Baloo Paaji", speed:1000}
 };
@@ -34,9 +35,10 @@ var desktopSettings = {
     logoScale:0.8,
     splashMarty:{scale:0.5},
     paddle:{scale:1, textOffset:160},
-    instructions:"Using the arrow keys. Make Marty dance by pressing the corresponding arrow \n as it passes through the static arrows at the top of the screen.\n \n The more accurate you are the more points you will receive!",
+    instructions:"Using the arrow keys. Make Marty dance by pressing the corresponding arrow as they collide.",
+    instrunctionPadding:500,
     instructionsFont:"24px Baloo Paaji",
-    score:{font:"50px Baloo Paaji", y:70},
+    score:{font:"50px Baloo Paaji", y:95},
     bonus:{font:"40px Baloo Paaji", speed:1000}
 };
 

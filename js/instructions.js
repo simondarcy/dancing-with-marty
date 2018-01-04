@@ -22,6 +22,8 @@ var Instructions = {
         textStyle = { font: settings.instructionsFont ,fill: '#52108c', align:'center'};
         instructionsHeading = game.add.text(game.width/2, 180, settings.instructions, textStyle);
         instructionsHeading.anchor.set(0.5);
+        instructionsHeading.wordWrap = true;
+        instructionsHeading.wordWrapWidth = game.width - settings.instrunctionPadding;
 
 
         arrowsTop = game.add.sprite(game.width/2, instructionsHeading.centerY+150, "arrows");

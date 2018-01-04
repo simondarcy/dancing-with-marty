@@ -32,7 +32,15 @@ var Menu = {
 
 
         splashMartyTween = game.add.tween(splashMarty).to({x:game.width/2}, 300, Phaser.Easing.Linear.None);
+        splashMartyTween.onComplete.addOnce(function () {
+            if(!settings.isMobile) {
+                soundbit = game.add.audio('all-aboard');
+                soundbit.play();
+            }
+        });
         splashMartyTween.start();
+
+
 
 
 
