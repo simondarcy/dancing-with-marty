@@ -13,17 +13,15 @@ var Menu = {
 
 
 
-        logo = game.add.sprite(game.width/2, 150, 'logo');
+        logo = game.add.sprite(game.width/2, 100, 'logo');
         logo.anchor.setTo(0.5);
         logo.scale.setTo(settings.logoScale);
 
 
-        soundbit = game.add.audio('kerry');
-        soundbit.play();
 
         //add Splash screen heading
         textStyle = { font: "34px Baloo Paaji" , fill: '#ff0000', align:'center', boundsAlignH: "center", boundsAlignV: "middle" };
-        splashHeading = game.add.text(game.width/2, logo.centerY+150, "Dancing With Marty!", textStyle);
+        splashHeading = game.add.text(game.width/2, logo.centerY+100, "Dancing With Marty!", textStyle);
         splashHeading.anchor.set(0.5);
         splashHeading.scale.set(0);
 

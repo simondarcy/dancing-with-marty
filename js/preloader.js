@@ -39,37 +39,32 @@ var Preloader = {
 
         //Audio
         game.load.audio('music', ['audio/music.wav']);
-        game.load.audio('all-aboard', ['audio/all-aboard.ogg']);
-        game.load.audio('attention', ['audio/attention.ogg']);
-        game.load.audio('exciting', ['audio/exciting.ogg']);
-        game.load.audio('final', ['audio/final.ogg']);
-        game.load.audio('is-this-thing-on', ['audio/is-this-thing-on.ogg']);
-        game.load.audio('kerry', ['audio/kerry.ogg']);
+        game.load.audio('all-aboard', ['audio/all-aboard.mp3', 'audio/all-aboard.ogg', 'audio/all-aboard.wav']);
+        game.load.audio('attention', ['audio/attention.mp3', 'audio/attention.ogg', 'audio/attention.wav']);
+        game.load.audio('exciting', ['audio/exciting.mp3', 'audio/exciting.ogg', 'audio/exciting.wav']);
+        game.load.audio('final', ['audio/final.mp3', 'audio/final.ogg', 'audio/final.wav']);
+        game.load.audio('is-this-thing-on', ['audio/is-this-thing-on.mp3', 'audio/is-this-thing-on.ogg', 'audio/is-this-thing-on.wav']);
+        game.load.audio('kerry', ['audio/kerry.mp3', 'audio/kerry.ogg', 'audio/kerry.ogg']);
 
         //Main Game Assets
 
+        game.load.spritesheet('dance-idle', 'img/dance-idle.png?v=2', 330, 520, 4);
+        game.load.spritesheet('dance-down', 'img/dance-down.png?v=2', 330, 520, 4);
+        game.load.spritesheet('dance-right', 'img/dance-right.png?v=2', 330, 520, 6);
+        game.load.spritesheet('dance-up', 'img/dance-up.png?v=2', 330, 520, 6);
+        game.load.spritesheet('dance-left', 'img/dance-left.png?v=2', 330, 520, 6);
 
-
-
-
-        game.load.spritesheet('dance-idle', 'dance-idle.png?v=2', 330, 520, 4);
-        game.load.spritesheet('dance-down', 'dance-down.png?v=2', 330, 520, 4);
-        game.load.spritesheet('dance-right', 'dance-right.png?v=2', 330, 520, 6);
-        game.load.spritesheet('dance-up', 'dance-up.png?v=2', 330, 520, 6);
-        game.load.spritesheet('dance-left', 'dance-left.png?v=2', 330, 520, 6);
-
-        game.load.spritesheet('arrows', 'arrows.png?v=2', 100, 100, 4);
-        game.load.image('logo', 'logo.png');
-        game.load.image('paddle', 'paddle.png');
-        game.load.image('bgr', 'bgr.png');
-        game.load.image('marty1', 'marty.png');
-
+        game.load.spritesheet('arrows', 'img/arrows.png?v=2', 100, 100, 4);
+        game.load.image('logo', 'img/logo.png');
+        game.load.image('paddle', 'img/paddle.png');
+        game.load.image('bgr', 'img/bgr.png');
+        game.load.image('marty1', 'img/marty.png');
 
         //Share icons
-        game.load.image('facebook', 'share_facebook.png');
-        game.load.image('twitter', 'share_twitter.png');
-        game.load.image('link', 'share_link.png');
-        game.load.image('whatsapp', 'share_whatsapp.png');
+        game.load.image('facebook', 'img/share_facebook.png');
+        game.load.image('twitter', 'img/share_twitter.png');
+        game.load.image('link', 'img/share_link.png');
+        game.load.image('whatsapp', 'img/share_whatsapp.png');
 
         game.load.start();
 

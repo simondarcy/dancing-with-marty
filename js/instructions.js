@@ -19,8 +19,12 @@ var Instructions = {
         splashHeading = game.add.text(game.width/2, 50, "How to Play", textStyle);
         splashHeading.anchor.set(0.5);
 
+        textStyle = { font: settings.instructionsFont ,fill: '#52108c', align:'center'};
+        instructionsHeading = game.add.text(game.width/2, 180, settings.instructions, textStyle);
+        instructionsHeading.anchor.set(0.5);
 
-        arrowsTop = game.add.sprite(game.width/2, game.height/2, "arrows");
+
+        arrowsTop = game.add.sprite(game.width/2, instructionsHeading.centerY+150, "arrows");
         arrowsTop.anchor.set(0.5);
         game.physics.enable(arrowsTop, Phaser.Physics.ARCADE);
 
@@ -28,9 +32,14 @@ var Instructions = {
         this.createBottom();
 
 
-        textStyle = { font: "18px Baloo Paaji" ,fill: '#52108c', align:'center'};
-        splashHeading = game.add.text(game.width/2, 120, settings.instructions, textStyle);
-        splashHeading.anchor.set(0.5);
+
+        textStyle = { font: "23px Baloo Paaji" , fill: '#ff0000', align:'center', boundsAlignH: "center", boundsAlignV: "middle" };
+        instructionHeading = game.add.text(game.world.centerX, game.height-70, "Tap to boogie!", textStyle);
+        instructionHeading.anchor.set(0.5);
+        instructionHeading.alpha = 0;
+
+        instructionHeadingTween = game.add.tween(instructionHeading).to( { alpha: 1 }, 800, Phaser.Easing.Linear.None, true, 0, 800, true);
+
 
 
         game.input.onTap.add(function(){
@@ -50,13 +59,12 @@ var Instructions = {
     update: function(){
 
 
-
-        if (arrowsBottom.y<=arrowsTop.centerY){
+        if (arrowsBottom.y<=arrowsTop.centerY-30){
+            arrowsBottom.body.velocity.y = +1;
 
             var colorTween = game.add.tween(arrowsBottom.scale);
-            colorTween.to({x:2.5,y:2.5}, 300, Phaser.Easing.Linear.None);
+            colorTween.to({x:2.5,y:2.5  }, 300, Phaser.Easing.Linear.None);
             colorTween.start();
-            arrowsBottom.alpha = 1;
             colorTween.onComplete.addOnce(function () {
                 arrowsBottom.kill();
                 Instructions.createBottom();

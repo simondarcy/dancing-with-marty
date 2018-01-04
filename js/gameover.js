@@ -6,14 +6,15 @@ var GameOver = {
 
     create: function () {
 
-            music.stop();
+        music.stop();
 
         //add background
         background = game.add.sprite(0, 0, 'bgr');
         background.width = w;
         background.height = h;
 
-
+        soundbit = game.add.audio('kerry');
+        soundbit.play();
 
         game.input.onTap.add(function(){
             game.state.start('Game');
@@ -22,14 +23,15 @@ var GameOver = {
 
         paddle = game.add.sprite(game.width/2, game.height + 200, "paddle");
         paddle.anchor.setTo(0.5, 0);
-        var paddleTween = game.add.tween(paddle).to({y:game.height-paddle.height}, 300, Phaser.Easing.Linear.None);;
+        paddle.scale.setTo(settings.paddle.scale);
+        var paddleTween = game.add.tween(paddle).to({y:game.height-paddle.height}, 300, Phaser.Easing.Linear.None);
 
 
         paddleTween.onComplete.addOnce(function(){
 
             textStyle = { font: "68px Baloo Paaji" , fill: '#000000', align:'center', boundsAlignH: "center", boundsAlignV: "middle" };
 
-            scoreTxt = game.add.text(game.world.centerX-10, paddle.y+160, score, textStyle);
+            scoreTxt = game.add.text(game.world.centerX-10, paddle.y+settings.paddle.textOffset, score, textStyle);
             scoreTxt.anchor.setTo(0.35, 0.1);
 
         });
@@ -84,18 +86,18 @@ var GameOver = {
         link.scale.set(settings.shareScale);
 
         facebook.onInputUp.add(function(){
-            url = "//www.facebook.com/sharer/sharer.php?u=https://www.rte.ie/";
+            url = "//www.facebook.com/sharer/sharer.php?u=https://www.rte.ie/dancing-with-marty/";
             window.open(url, "_blank")
 
         }, this);
         twitter.onInputUp.add(function(){
-            shareText = "I just scored " + score + " points dancing with @MartyM_RTE Play Now! #DWTS";
-            url = "//twitter.com/share?url=https://www.rte.ie/&text="+shareText+"&via=DWTSIRL&hashtags=DWTSIRL";
+            shareText = "I just scored " + score + " points dancing with @MartyM_RTE Play Now! @DWTSIRL #DWTS";
+            url = "//twitter.com/share?url=https://www.rte.ie/dancing-with-marty/&text="+shareText+"&via=DWTSIRL&hashtags=DWTSIrl";
             window.open(url, "_blank")
         }, this);
 
         link.onInputUp.add(function(){
-            shareText = "I just scored " + score + " points dancing with Marty Morrissey!. Have a go yourself here: https://www.rte.ie/X/";
+            shareText = "I just scored " + score + " points dancing with Marty Morrissey!. Have a go yourself here: https://www.rte.ie/dancing-with-marty/";
 
             //If mobile open in whatsapp
             if(settings.isMobile){

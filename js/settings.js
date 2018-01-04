@@ -8,28 +8,36 @@ var mobileSettings = {
     shareX:100,
     shareY:140,
     shareSpacing:100,
-    splashMarty:{scale:0.3},
+    splashMarty:{scale:0.4},
     shareScale:1,
     isMobile:true,
-    logoScale:1,
-    instructions:"Make Marty dance by swiping in the direction of the corresponding arrow as it passes through the static arrows at the top of the screen.\n The more accurate you are the more points you will receive"
+    logoScale:0.6,
+    paddle:{scale:0.8, textOffset:125},
+    instructions:"Make Marty dance by swiping in the direction \n of the corresponding arrow as it passes through \n the static arrows at the top of the screen.\n\n The more accurate you are \n the more points you will receive",
+    instructionsFont:"14px Baloo Paaji",
+    score:{font:"40px Baloo Paaji", y:70},
+    bonus:{font:"30px Baloo Paaji", speed:1000}
 };
 
 var desktopSettings = {
     upBtnPos:{x:100, y:100},
     downBtnPos:{x:210, y:100},
-    leftBtnPos:{x:310, y:100},
-    rightBtnPos:{x:200, y:100},
+    leftBtnPos:{x:210, y:100},
+    rightBtnPos:{x:100, y:100},
     btnScale:1,
-    marty:{scale:1.3},
+    marty:{scale:1.1},
     shareX:100,
     shareY:100,
     shareSpacing:100,
     shareScale:1,
     isMobile:false,
-    logoScale:0.9,
-    splashMarty:{scale:0.4},
-    instructions:"Make Marty dance using your arrow keys to fire when the arrows collide, the more accurate you are the more points you will receive"
+    logoScale:0.8,
+    splashMarty:{scale:0.5},
+    paddle:{scale:1, textOffset:160},
+    instructions:"Using the arrow keys. Make Marty dance by pressing the corresponding arrow \n as it passes through the static arrows at the top of the screen.\n \n The more accurate you are the more points you will receive!",
+    instructionsFont:"24px Baloo Paaji",
+    score:{font:"50px Baloo Paaji", y:70},
+    bonus:{font:"40px Baloo Paaji", speed:1000}
 };
 
 var settings = mobileSettings;
