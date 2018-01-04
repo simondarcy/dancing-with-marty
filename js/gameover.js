@@ -21,6 +21,9 @@ var GameOver = {
         }, this);
 
 
+        clearInterval(timer);
+
+
         paddle = game.add.sprite(game.width/2, game.height + 200, "paddle");
         paddle.anchor.setTo(0.5, 0);
         paddle.scale.setTo(settings.paddle.scale);

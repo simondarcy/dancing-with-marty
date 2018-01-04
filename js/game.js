@@ -10,6 +10,7 @@ var currentDance;
 var music;
 var talking=false;
 var fps = 9;
+var timer;
 
 dances = {
     "idle":{sprite:"dance-idle", frames: [0,1,2,1],speed:fps+1},
@@ -160,7 +161,7 @@ var Game = {
         // the width will be set to 50% of the actual size so the new value will be 60
         myHealthBar.setPercent(percent);
 
-        setInterval(function () {
+        timer = setInterval(function () {
             percent = percent + 3;
             myHealthBar.setPercent(percent);
         }, 1000);
