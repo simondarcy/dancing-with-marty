@@ -16,7 +16,6 @@ var Preloader = {
 
     preload : function() {
 
-
         game.load.script('webfont', '//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js');
         //Loading text
         loadingText = game.add.text(game.width/2, game.height/2, 'Loading...', { font:"23px Baloo Paaji", fill: '#52108c', align:'center', boundsAlignH: "center", boundsAlignV: "middle"});
@@ -38,13 +37,13 @@ var Preloader = {
         game.stage.backgroundColor = '#f9e1ad';
 
         //Audio
-        game.load.audio('music', ['audio/music.wav']);
-        game.load.audio('all-aboard', ['audio/all-aboard.mp3', 'audio/all-aboard.ogg', 'audio/all-aboard.wav']);
-        game.load.audio('attention', ['audio/attention.mp3', 'audio/attention.ogg', 'audio/attention.wav']);
-        game.load.audio('exciting', ['audio/exciting.mp3', 'audio/exciting.ogg', 'audio/exciting.wav']);
-        game.load.audio('final', ['audio/final.mp3', 'audio/final.ogg', 'audio/final.wav']);
-        game.load.audio('is-this-thing-on', ['audio/is-this-thing-on.mp3', 'audio/is-this-thing-on.ogg', 'audio/is-this-thing-on.wav']);
-        game.load.audio('kerry', ['audio/kerry.mp3', 'audio/kerry.ogg', 'audio/kerry.ogg']);
+        game.load.audio('music', ['audio_compressed/music_crop.wav']);
+        game.load.audio('all-aboard', ['audio_compressed/all-aboard.wav', 'audio_compressed/all-aboard.mp3', 'audio_compressed/all-aboard.ogg']);
+        game.load.audio('attention', ['audio_compressed/attention.wav', 'audio_compressed/attention.mp3', 'audio_compressed/attention.ogg']);
+        game.load.audio('exciting', [ 'audio_compressed/exciting.wav', 'audio_compressed/exciting.mp3', 'audio_compressed/exciting.ogg']);
+        game.load.audio('final', ['audio_compressed/final.wav', 'audio_compressed/final.mp3', 'audio_compressed/final.ogg']);
+        game.load.audio('is-this-thing-on', ['audio_compressed/is-this-thing-on.wav', 'audio_compressed/is-this-thing-on.mp3', 'audio_compressed/is-this-thing-on.ogg']);
+        game.load.audio('kerry', ['audio_compressed/kerry.wav', 'audio_compressed/kerry.mp3', 'audio_compressed/kerry.ogg']);
 
         //Main Game Assets
 
@@ -77,7 +76,7 @@ var Preloader = {
         game.state.start('Menu');
     },
     fileComplete : function(progress, cacheKey, success, totalLoaded, totalFiles){
-        loadingText.setText("Loading: " + progress + "% - " + totalLoaded + " of " + totalFiles);
+        loadingText.setText("Loading: " + progress + "%");
     },
     create: function () {
 

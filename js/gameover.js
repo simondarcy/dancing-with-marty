@@ -20,15 +20,15 @@ var GameOver = {
             game.state.start('Game');
         }, this);
 
-
         clearInterval(timer);
 
+        //Google analytics with score
+        if(typeof ga != "undefined") ga('send', 'event', 'MartyGame', 'score', score);
 
         paddle = game.add.sprite(game.width/2, game.height + 200, "paddle");
         paddle.anchor.setTo(0.5, 0);
         paddle.scale.setTo(settings.paddle.scale);
         var paddleTween = game.add.tween(paddle).to({y:game.height-paddle.height}, 300, Phaser.Easing.Linear.None);
-
 
         paddleTween.onComplete.addOnce(function(){
 
@@ -40,13 +40,9 @@ var GameOver = {
         });
         paddleTween.start();
 
-
-
-
-
         //add Splash screen heading
         textStyle = { font: "40px Baloo Paaji" , fill: '#52108c', align:'center', boundsAlignH: "center", boundsAlignV: "middle" };
-        splashHeading = game.add.text(game.world.centerX, 50, "Your Score", textStyle);
+        splashHeading = game.add.text(game.world.centerX, 50, "Total Points", textStyle);
         splashHeading.scale.set(0);
         splashHeading.anchor.set(0.5);
 
@@ -94,13 +90,13 @@ var GameOver = {
 
         }, this);
         twitter.onInputUp.add(function(){
-            shareText = "I just scored " + score + " points dancing with @MartyM_RTE Play Now! @DWTSIRL #DWTS";
+            shareText = "I just scored " + score + " points dancing with @MartyM_RTE Play Now! #DWTS";
             url = "//twitter.com/share?url=https://www.rte.ie/dancing-with-marty/&text="+shareText+"&via=DWTSIRL&hashtags=DWTSIrl";
             window.open(url, "_blank")
         }, this);
 
         link.onInputUp.add(function(){
-            shareText = "I just scored " + score + " points dancing with Marty Morrissey!. Have a go yourself here: https://www.rte.ie/dancing-with-marty/";
+            shareText = "I just scored " + score + " points dancing with Marty Morrissey! Have a go yourself here: https://www.rte.ie/dancing-with-marty/";
 
             //If mobile open in whatsapp
             if(settings.isMobile){

@@ -36,7 +36,7 @@ var Instructions = {
 
 
         textStyle = { font: "23px Baloo Paaji" , fill: '#ff0000', align:'center', boundsAlignH: "center", boundsAlignV: "middle" };
-        instructionHeading = game.add.text(game.world.centerX, game.height-70, "Tap to boogie!", textStyle);
+        instructionHeading = game.add.text(game.world.centerX, game.height-70, settings.user_action+" to boogie!", textStyle);
         instructionHeading.anchor.set(0.5);
         instructionHeading.alpha = 0;
 
